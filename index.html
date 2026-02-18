@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Math Practice" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="description" content="Cross-platform math practice app with offline worksheets and quizzes." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Math Practice Everywhere</title>
+  </head>
+  <body>
+    <header class="top-bar">
+      <button id="menuButton" class="icon-btn" aria-label="Open menu">☰</button>
+      <h1>Math Practice Everywhere</h1>
+      <button id="installButton" class="icon-btn hidden" aria-label="Install app">⬇</button>
+    </header>
+
+    <aside id="drawer" class="drawer" aria-hidden="true">
+      <h2>Quick Actions</h2>
+      <button data-action="new-worksheet">Generate Worksheet</button>
+      <button data-action="share-latest">Share Latest Worksheet</button>
+      <button data-action="print-latest">Print Latest Worksheet</button>
+      <button data-action="clear-progress">Clear Progress</button>
+    </aside>
+
+    <main id="appMain">
+      <div id="pullToRefresh" class="pull-refresh">↻ Pull to refresh worksheets</div>
+
+      <section id="practice" class="tab active" aria-label="Practice tab">
+        <h2>Quiz Practice</h2>
+        <div class="card">
+          <p class="question" id="questionText">Press Start to begin</p>
+          <div class="answer-row">
+            <input id="answerInput" type="number" inputmode="numeric" placeholder="Your answer" autocomplete="off" />
+            <button id="voiceBtn" class="secondary" aria-label="Voice input">🎙</button>
+          </div>
+          <div class="actions">
+            <button id="startBtn">Start</button>
+            <button id="submitBtn" class="secondary">Submit</button>
+          </div>
+          <p id="feedback" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="worksheets" class="tab" aria-label="Worksheets tab">
+        <h2>Worksheets</h2>
+        <div class="card">
+          <div class="actions wrap">
+            <button id="generateWorksheetBtn">Generate</button>
+            <button id="shareWorksheetBtn" class="secondary">Share</button>
+            <button id="printWorksheetBtn" class="secondary">Print / Save PDF</button>
+          </div>
+          <div id="worksheetList" class="worksheet-list"></div>
+        </div>
+      </section>
+
+      <section id="progress" class="tab" aria-label="Progress tab">
+        <h2>Progress</h2>
+        <div class="card stats">
+          <p>Total Attempted: <strong id="statAttempted">0</strong></p>
+          <p>Correct: <strong id="statCorrect">0</strong></p>
+          <p>Accuracy: <strong id="statAccuracy">0%</strong></p>
+          <p>Offline Queue: <strong id="statQueue">0</strong></p>
+        </div>
+      </section>
+
+      <section id="settings" class="tab" aria-label="Settings tab">
+        <h2>Settings</h2>
+        <div class="card">
+          <label><input type="checkbox" id="reducedMotionToggle" /> Respect reduced motion</label>
+          <label><input type="checkbox" id="hapticsToggle" checked /> Haptic feedback</label>
+          <label><input type="checkbox" id="materialToggle" checked /> Material style on Android</label>
+          <p class="muted">App supports offline caching, sync when online, and install to home screen.</p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button data-tab="practice" class="active">Practice</button>
+      <button data-tab="worksheets">Worksheets</button>
+      <button data-tab="progress">Progress</button>
+      <button data-tab="settings">Settings</button>
+    </nav>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144" role="img" aria-label="Math Practice icon">
+  <rect width="144" height="144" rx="28" fill="#2563eb"/>
+  <rect x="18" y="18" width="108" height="108" rx="24" fill="#1d4ed8" stroke="#bfdbfe" stroke-width="4"/>
+  <path d="M 43 50 L 100 93 M 100 50 L 43 93" stroke="white" stroke-width="9" stroke-linecap="round"/>
+</svg>
